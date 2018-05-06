@@ -5,7 +5,7 @@ export function map(classData) {
 }
 
 function drawDirectives() {
-    return '#lineWidth: 1 \n #stroke: #000000 \n #fill: #ffffff';
+    return '#lineWidth: 1 \n #stroke: #000000 \n #fill: #cccccc';
 }
 
 function drawClasses(classes) {
