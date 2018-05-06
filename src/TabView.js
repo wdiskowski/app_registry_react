@@ -1,5 +1,6 @@
 import React from "react";
 import ErDiagrammTabView from './modules/er-diagramm/ErDiagrammTabView';
+import ClassDiagrammTabView from './modules/class-diagramm/ClassDiagrammTabView';
 import ConfigInfoTabView from './modules/config-info/ConfigInfoTabView';
 import ReleaseInfoTabView from './modules/release-info/ReleaseInfoTabView';
 import LogInfoTabView from './modules/log-info/LogInfoTabView';
@@ -38,31 +39,32 @@ export default class TabView extends React.Component {
                     <sup>{this.props.appId} ({this.props.targetId})</sup>
                 </TabList>
                 <TabPanel>
-                    <ReleaseInfoTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <ReleaseInfoTabView appId={this.props.appId} targetId={this.props.targetId}
                         url={this.state.baseUrl + (this.state.registryData.releaseInfo ? this.state.registryData.releaseInfo : "")} />
                 </TabPanel>
                 <TabPanel>
-                    <ConfigInfoTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <ConfigInfoTabView appId={this.props.appId} targetId={this.props.targetId}
                         url={this.state.baseUrl + (this.state.registryData.configInfo ? this.state.registryData.configInfo : "")} />
                 </TabPanel>
                 <TabPanel>
-                    <LogInfoTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <LogInfoTabView appId={this.props.appId} targetId={this.props.targetId}
                         url={this.state.baseUrl + (this.state.registryData.logInfo ? this.state.registryData.logInfo : "")} />
                 </TabPanel>
                 <TabPanel>
-                    <InterfaceInfoTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <InterfaceInfoTabView appId={this.props.appId} targetId={this.props.targetId}
                         url={this.state.baseUrl + (this.state.registryData.interfaceInfo ? this.state.registryData.interfaceInfo : "")} />
                 </TabPanel>
                 <TabPanel>
-                    <MonitoringInfoTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <MonitoringInfoTabView appId={this.props.appId} targetId={this.props.targetId}
                         baseUrl={this.state.baseUrl} relativePath={(this.state.registryData.monitoringInfo ? this.state.registryData.monitoringInfo : {})} />
                 </TabPanel>
                 <TabPanel>
-                    <ErDiagrammTabView appId={this.props.appId} targetId={this.props.targetId} 
+                    <ErDiagrammTabView appId={this.props.appId} targetId={this.props.targetId}
                         url={this.state.baseUrl + (this.state.registryData.erDiagramm ? this.state.registryData.erDiagramm : "")} />
                 </TabPanel>
                 <TabPanel>
-                    <h2>Class Diagramm</h2>
+                    <ClassDiagrammTabView appId={this.props.appId} targetId={this.props.targetId}
+                        url={this.state.baseUrl + (this.state.registryData.classDiagramm ? this.state.registryData.classDiagramm : "")} />
                 </TabPanel>
             </Tabs>
         )
@@ -83,7 +85,7 @@ export default class TabView extends React.Component {
     loadRegistryData() {
         return findUrl(this.props.appId, this.props.targetId,
             baseUrl => {
-                this.setState({baseUrl});
+                this.setState({ baseUrl });
                 findRegistryData(baseUrl + "/registry",
                     registryData => this.setState({ registryData })
                 );

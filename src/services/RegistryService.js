@@ -6,6 +6,7 @@ const registryDataAll =
         releaseInfo: "/release-info",
         configInfo: "/config-info",
         erDiagramm: "/er-diagramm",
+        classDiagramm: "/class-diagramm",
         interfaceInfo: "/interface-info",
         logInfo: "/log-info",
         monitoringInfo: {

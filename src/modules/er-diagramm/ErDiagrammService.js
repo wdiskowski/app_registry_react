@@ -71,6 +71,6 @@ function findErDiagrammDataMock(url, onSuccess) {
                 function () {
                     resolve(url.indexOf("ex092vm") > -1 ? erDiagrammData : erMultiDiagrammData)
                 }, Math.random() * 2000 + 1000);
-        }).then(diagrmData => onSuccess(diagrmData));
+        }).then(diagramData => onSuccess(diagramData));
 }
 
